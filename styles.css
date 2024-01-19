@@ -1,0 +1,51 @@
+body{
+    padding: 2%;
+    width: 500px;
+    height: 250px;
+    color: #638889;
+    background-color: #EBD9B4;
+    font-family: "Roboto", sans-serif;
+}
+
+.main-container {
+    padding: 5%;
+}
+.main-container h1 {
+    font-size: 3.5rem;
+    margin-bottom: 36px;
+}
+
+.translator{
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.translate-input, .translate-output {
+    width: 45%;
+    margin-bottom: 12px;
+}
+.translate-input p, .translate-output p {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+.translate-input input, .translate-output input {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.button-container {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+#clearButton, #translateButton {
+    width: 45%;
+    padding: 2.5%;
+    border-radius: 10%;
+    border: none;
+    color: #F9EFDB;
+    background-color: #638889;
+}
