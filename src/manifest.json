@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Keyboard Layout Translator",
+    "version": "0.0.2",
+    "description": "Розширення Keyboard Layout Translator для Firefox: легкий переклад літер між англійською та українською розкладкою для полегшення набору тексту. Допомагає тим, хто пише, дивлячись на клавіатуру.",
+    "homepage_url": "https://github.com/NikitaBerezhnyj/Keyboard_Layout_Translator",
+
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["./content-script.js"] 
+      }
+    ],
+  
+    "browser_action": {
+      "default_icon": "./img/icon.png",
+      "default_title": "Keyboard Layout Translator",
+      "default_popup": "./popup.html"
+    },
+
+    "icons": {
+      "48": "./img/icon.png"
+    },
+
+    "background": {
+      "scripts": [
+        "./background.js"
+      ] 
+    },
+  
+    "permissions": [
+      "storage",
+      "menus"
+    ]
+}

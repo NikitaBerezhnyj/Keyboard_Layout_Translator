@@ -8,11 +8,11 @@ body{
 }
 
 .main-container {
-    padding: 5%;
+    padding: 3%;
 }
 .main-container h1 {
-    font-size: 3.5rem;
-    margin-bottom: 36px;
+    font-size: 2.5rem;
+    margin-bottom: 24px;
 }
 
 .translator{

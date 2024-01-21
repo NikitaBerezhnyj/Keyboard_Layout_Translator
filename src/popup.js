@@ -1,44 +1,8 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     const clearButton = document.getElementById('clearButton');
-//     const translateButton = document.getElementById('translateButton');
-//     const inputUa = document.querySelector('.translate-input input');
-//     const inputEn = document.querySelector('.translate-output input');
-
-//     clearButton.addEventListener('click', function () {
-//         clearInputFields();
-//     });
-
-//     function clearInputFields() {
-//         inputUa.value = '';
-//         inputEn.value = '';
-//     }
-
-//     translateButton.addEventListener('click', function () {
-//         const textUa = inputUa.value;
-
-//         if (textUa) {
-//             const isFirstLetterUkrainian = checkIfFirstLetterUkrainian(textUa);
-
-//             if (isFirstLetterUkrainian) {
-//                 const translatedTextEn = translateToEnglish(textUa);
-//                 inputEn.value = translatedTextEn;
-//             } else {
-//                 const translatedTextUa = translateToUkrainian(textUa);
-//                 inputEn.value = translatedTextUa;
-//             }
-//         }
-//     });
 document.addEventListener('DOMContentLoaded', function () {
     const clearButton = document.getElementById('clearButton');
     const translateButton = document.getElementById('translateButton');
     const inputUa = document.querySelector('.translate-input input');
     const inputEn = document.querySelector('.translate-output input');
-
-    // Зчитуємо текст з локального сховища при завантаженні сторінки
-    const storedText = localStorage.getItem('translatedText');
-    if (storedText) {
-        inputEn.value = storedText;
-    }
 
     clearButton.addEventListener('click', function () {
         clearInputFields();
@@ -58,25 +22,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (isFirstLetterUkrainian) {
                 const translatedTextEn = translateToEnglish(textUa);
                 inputEn.value = translatedTextEn;
-
-                // Зберігаємо перекладений текст в локальному сховищі
-                localStorage.setItem('translatedText', translatedTextEn);
-
-                // Встановлюємо таймер для очищення локального сховища через 10 хвилин (600000 мс)
-                setTimeout(function () {
-                    localStorage.removeItem('translatedText');
-                }, 600000);
             } else {
                 const translatedTextUa = translateToUkrainian(textUa);
                 inputEn.value = translatedTextUa;
 
-                // Зберігаємо перекладений текст в локальному сховищі
-                localStorage.setItem('translatedText', translatedTextUa);
-
-                // Встановлюємо таймер для очищення локального сховища через 10 хвилин (600000 мс)
-                setTimeout(function () {
-                    localStorage.removeItem('translatedText');
-                }, 600000);
             }
         }
     });

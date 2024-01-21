@@ -1,14 +1,14 @@
-# Gthtrkflfx
+# Keyboard Layout Translator
 
-Gthtrkflfx has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [English :uk:](#gthtrkflfx-uk) localizations
+Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [English :uk:](#gthtrkflfx-uk) localizations
 
-## Gthtrkflfx :ukraine:
+## Keyboard Layout Translator :ukraine:
 
 <p align="center">
-  <img src='./icon.png' alt='Лого' center style='width: 25%'>
+  <img src='./src/img/icon.png' alt='Лого' center style='width: 25%'>
 </p>
 
-***Gthtrkflfx*** - це розширення для Firefox, яке дозволяє перекласти текст, набраний неправильною мовною розкладкою, у правильний варіант.
+***Keyboard Layout Translator*** - це розширення для Firefox, яке дозволяє перекласти текст, набраний неправильною мовною розкладкою, у правильний варіант.
 
 ***Ліцензія:*** Всі права захищені
 
@@ -36,13 +36,13 @@ Gthtrkflfx has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [English :uk:](#gt
 
 ***Розширення можна завантажити за посиланням:*** <a href="https://addons.mozilla.org/uk/firefox/addon/gthtrkflfx/">https://addons.mozilla.org/uk/firefox/addon/gthtrkflfx/</a>
 
-## Gthtrkflfx :uk:
+## Keyboard Layout Translator :uk:
 
 <p align="center">
-  <img src='./icon.png' alt='Logo' center style='width: 25%'>
+  <img src='./src/img/icon.png' alt='Logo' center style='width: 25%'>
 </p>
 
-***Gthtrkflfx*** is a Firefox extension that allows you to translate text typed in the wrong language layout into the correct one.
+***Keyboard Layout Translator*** is a Firefox extension that allows you to translate text typed in the wrong language layout into the correct one.
 
 ***License:*** All rights reserved
 
