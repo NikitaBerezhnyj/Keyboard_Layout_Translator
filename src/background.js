@@ -9,5 +9,9 @@ browser.menus.create({
 browser.menus.onClicked.addListener((info, tab) => {
   const selectedText = info.selectionText;
   // Відправлення повідомлення до popup.js
+  browser.storage.local.set({
+    selectedText: selectedText,
+  });
+  // _____________________________________
   browser.browserAction.openPopup();
 });
