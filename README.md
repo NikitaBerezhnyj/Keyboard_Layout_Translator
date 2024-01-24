@@ -34,7 +34,7 @@ Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [E
 
 ***Електронна пошта підтримки:*** kitnikita06@gmail.com
 
-***Розширення можна завантажити за посиланням:*** <a href="https://addons.mozilla.org/uk/firefox/addon/gthtrkflfx/">https://addons.mozilla.org/uk/firefox/addon/gthtrkflfx/</a>
+***Розширення можна завантажити за посиланням:*** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>
 
 ## Keyboard Layout Translator :uk:
 
@@ -68,4 +68,4 @@ The extension allows you to enter text with errors in a special field due to a m
 
 ***Support email:*** kitnikita06@gmail.com
 
-***The extension can be downloaded here:*** <a href="https://addons.mozilla.org/uk/firefox/addon/gthtrkflfx/">https://addons.mozilla.org/uk/firefox/addon/gthtrkflfx/</a>
+***The extension can be downloaded here:*** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>

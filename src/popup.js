@@ -14,6 +14,9 @@ browser.storage.local.get('selectedText').then(result => {
         const translatedTextUa = translateToUkrainian(text);
         inputEn.value = translatedTextUa;
     }
+    browser.storage.local.set({
+        selectedText: "",
+      });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
