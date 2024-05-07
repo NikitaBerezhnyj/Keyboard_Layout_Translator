@@ -1,39 +1,93 @@
-body{
+/* Variables */
+:root {
+    --main-color: #3498db;
+    --accent-color: #f9efdb;
+    --text-color: #333333;
+}
+
+/* Global Styles */
+* {
+    font-size: 1rem;
+}
+
+body {
     padding: 2%;
     width: 500px;
     height: 250px;
-    color: #638889;
-    background-color: #EBD9B4;
+    color: var(--text-color);
+    background-color: var(--main-color);
     font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
 }
 
+/* Container Styles */
 .main-container {
     padding: 3%;
-}
-.main-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 24px;
+    max-width: 600px;
 }
 
-.translator{
+.main-container h1 {
+    font-size: 2rem;
+    margin-bottom: 48px;
+}
+
+/* Translator Styles */
+.translator {
     width: 80%;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
 }
-.translate-input, .translate-output {
-    width: 45%;
+
+.translate-input,
+.translate-output {
+    width: 40%;
     margin-bottom: 12px;
 }
-.translate-input p, .translate-output p {
+
+.translate-input p,
+.translate-output p {
     font-size: 1.5rem;
     margin-bottom: 12px;
 }
-.translate-input input, .translate-output input {
+
+.translate-arrow {
+    cursor: pointer;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.translate-arrow:hover {
+    transform: scale(1.2);
+}
+
+.translate-arrow button {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.translate-arrow button img {
+    cursor: pointer;
     width: 100%;
+}
+
+.select-lang {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.translate-input input,
+.translate-output input {
+    width: 95%;
     font-size: 1rem;
 }
 
+/* Button Container */
 .button-container {
     width: 80%;
     display: flex;
@@ -41,11 +95,41 @@ body{
     justify-content: space-between;
 }
 
-#clearButton, #translateButton {
-    width: 45%;
+/* Button Styles */
+#clearButton,
+#translateButton {
+    width: 40%;
     padding: 2.5%;
-    border-radius: 10%;
+    border-radius: 100px;
     border: none;
-    color: #F9EFDB;
-    background-color: #638889;
+    color: var(--accent-color);
+    background-color: var(--text-color);
+}
+
+.btn {
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animation */
+.change-animation {
+    animation: rotateArrow 1s ease-in-out;
+}
+
+@keyframes rotateArrow {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }

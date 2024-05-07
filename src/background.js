@@ -3,7 +3,7 @@ console.log("Extension load");
 browser.menus.create({
   id: "translate-to-correct-layout",
   title: "Translate to correct layout",
-  contexts: ["selection"]  
+  contexts: ["selection"],
 });
 
 browser.menus.onClicked.addListener((info, tab) => {
