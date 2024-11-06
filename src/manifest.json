@@ -26,5 +26,11 @@
     "scripts": ["./background.js"]
   },
 
-  "permissions": ["storage", "menus"]
+  "permissions": ["storage", "menus"],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{92e876a5-10e7-46f0-8af6-ca950565d2a4}"
+    }
+  }
 }
