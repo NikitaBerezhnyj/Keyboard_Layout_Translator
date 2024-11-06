@@ -1,135 +1,131 @@
-/* Variables */
-:root {
-    --main-color: #3498db;
-    --accent-color: #f9efdb;
-    --text-color: #333333;
-}
+@import url("./colors.css");
 
-/* Global Styles */
 * {
-    font-size: 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
 body {
-    padding: 2%;
-    width: 500px;
-    height: 250px;
-    color: var(--text-color);
-    background-color: var(--main-color);
-    font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
+  padding: 1%;
+  width: 450px;
+  height: 250px;
+  color: var(--text-color);
+  background-color: var(--main-color);
+  font-family: "Roboto", sans-serif;
 }
 
-/* Container Styles */
 .main-container {
-    padding: 3%;
-    max-width: 600px;
+  padding: 3%;
+  width: 100%;
 }
 
 .main-container h1 {
-    font-size: 2rem;
-    margin-bottom: 48px;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 36px;
 }
 
-/* Translator Styles */
 .translator {
-    width: 80%;
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-between;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .translate-input,
 .translate-output {
-    width: 40%;
-    margin-bottom: 12px;
+  width: 40%;
+  margin-bottom: 12px;
 }
 
 .translate-input p,
 .translate-output p {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+  font-size: 1.5rem;
+  margin-bottom: 12px;
 }
 
 .translate-arrow {
-    cursor: pointer;
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
+  cursor: pointer;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
 .translate-arrow:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .translate-arrow button {
-    border: none;
-    background-color: transparent;
-    font-size: 2rem;
-    font-weight: bolder;
+  border: none;
+  background-color: transparent;
+  font-size: 2rem;
+  font-weight: bolder;
 }
 
 .translate-arrow button img {
-    cursor: pointer;
-    width: 100%;
+  cursor: pointer;
+  width: 100%;
 }
 
 .select-lang {
-    width: 100%;
-    margin-bottom: 12px;
+  width: 100%;
+  margin-bottom: 12px;
 }
 
 .translate-input input,
 .translate-output input {
-    width: 95%;
-    font-size: 1rem;
+  width: 100%;
+  font-size: 1rem;
 }
 
-/* Button Container */
 .button-container {
-    width: 80%;
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-between;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
 }
 
-/* Button Styles */
+#lang-changer-img {
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
 #clearButton,
 #translateButton {
-    width: 40%;
-    padding: 2.5%;
-    border-radius: 100px;
-    border: none;
-    color: var(--accent-color);
-    background-color: var(--text-color);
+  width: 40%;
+  padding: 2.5%;
+  border-radius: 100px;
+  border: none;
+  color: var(--text-color);
+  background-color: var(--accent-color);
 }
 
 .btn {
-    cursor: pointer;
-    transition: transform 0.5s ease;
+  cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
 .btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-/* Animation */
 .change-animation {
-    animation: rotateArrow 1s ease-in-out;
+  animation: rotateArrow 1s ease-in-out;
 }
 
 @keyframes rotateArrow {
-    0% {
-        transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
 
-    50% {
-        transform: rotate(-180deg);
-    }
+  50% {
+    transform: rotate(-180deg);
+  }
 
-    100% {
-        transform: rotate(0deg);
-    }
+  100% {
+    transform: rotate(0deg);
+  }
 }

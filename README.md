@@ -8,16 +8,16 @@ Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [E
   <img src='./src/img/icon.png' alt='Лого' center style='width: 25%'>
 </p>
 
-***Keyboard Layout Translator*** - це розширення для Firefox, яке дозволяє перекласти текст, набраний неправильною мовною розкладкою, у правильний варіант.
+**_Keyboard Layout Translator_** - це розширення для Firefox, яке дозволяє перекласти текст, набраний неправильною мовною розкладкою, у правильний варіант.
 
-***Ліцензія:*** Всі права захищені
+**_Ліцензія:_** MIT LICENSE
 
-***Мінімальна підтримувана версія:*** Firefox 52.0
+**_Мінімальна підтримувана версія:_** Firefox 52.0
 
 ### Опис роботи
 
 <p align="center">
-  <img src='./screenshot-ua.png' alt='Демонстрація розширення' center style='width: 50%'>
+  <img src='./assets/screenshot-ua.png' alt='Демонстрація розширення' center style='width: 50%'>
 </p>
 
 Розширення дозволяє ввести в спеціальне поле текст з помилками, виниклими через невідповідність розкладки. Після натискання кнопки "Перекласти" розширення аналізує текст і виправляє помилки розкладки, виводячи результат у сусіднє поле.
@@ -32,9 +32,7 @@ Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [E
 
 ### Посилання
 
-***Електронна пошта підтримки:*** kitnikita06@gmail.com
-
-***Розширення можна завантажити за посиланням:*** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>
+**_Розширення можна завантажити за посиланням:_** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>
 
 ## Keyboard Layout Translator :uk:
 
@@ -42,16 +40,16 @@ Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [E
   <img src='./src/img/icon.png' alt='Logo' center style='width: 25%'>
 </p>
 
-***Keyboard Layout Translator*** is a Firefox extension that allows you to translate text typed in the wrong language layout into the correct one.
+**_Keyboard Layout Translator_** is a Firefox extension that allows you to translate text typed in the wrong language layout into the correct one.
 
-***License:*** All rights reserved
+**_License:_** MIT LICENSE
 
-***Minimum Supported Version:*** Firefox 52.0
+**_Minimum Supported Version:_** Firefox 52.0
 
 ### Description work
 
 <p align="center">
-  <img src='./screenshot-en.png' alt='Extension demonstration' center style='width: 50%'>
+  <img src='./assets/screenshot-en.png' alt='Extension demonstration' center style='width: 50%'>
 </p>
 
 The extension allows you to enter text with errors in a special field due to a mismatch in the layout. After clicking the "Translate" button, the extension analyzes the text and corrects the layout errors, displaying the result in the next field.
@@ -66,6 +64,4 @@ The extension allows you to enter text with errors in a special field due to a m
 
 ### Links
 
-***Support email:*** kitnikita06@gmail.com
-
-***The extension can be downloaded here:*** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>
+**_The extension can be downloaded here:_** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>
