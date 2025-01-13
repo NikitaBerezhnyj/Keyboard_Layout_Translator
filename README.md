@@ -30,6 +30,26 @@ Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [E
 4. Натиснути кнопку "Translate"
 5. Перекладений текст з'явиться у правому полі
 
+### Інструкція з збірки розширення
+
+1. Клонуйте репозиторій
+
+```bash
+git clone https://github.com/NikitaBerezhnyj/Keyboard_Layout_Translator.git
+```
+
+2. Перейдіть до директорії розширення
+
+```bash
+cd Keyboard_Layout_Translator
+```
+
+3. Збірка розширення через Makefile
+
+```bash
+make
+```
+
 ### Посилання
 
 **_Розширення можна завантажити за посиланням:_** <a href="https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/">https://addons.mozilla.org/uk/firefox/addon/keyboard_layout_translator/</a>
@@ -61,6 +81,26 @@ The extension allows you to enter text with errors in a special field due to a m
 3. Enter the damaged text in the left field
 4. Click the "Translate" button
 5. The translated text will appear in the right field
+
+### Instructions for assembling the extension
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/NikitaBerezhnyj/Keyboard_Layout_Translator.git
+```
+
+2. Change to the extension directory
+
+```bash
+cd Keyboard_Layout_Translator
+```
+
+3. Building the extension through the Makefile
+
+```bash
+make
+```
 
 ### Links
 
