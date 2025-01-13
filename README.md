@@ -12,7 +12,7 @@ Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [E
 
 **_Ліцензія:_** MIT LICENSE
 
-**_Мінімальна підтримувана версія:_** Firefox 52.0
+**_Мінімальна підтримувана версія:_** Firefox 109.0
 
 ### Опис роботи
 
@@ -64,7 +64,7 @@ make
 
 **_License:_** MIT LICENSE
 
-**_Minimum Supported Version:_** Firefox 52.0
+**_Minimum Supported Version:_** Firefox 109.0
 
 ### Description work
 

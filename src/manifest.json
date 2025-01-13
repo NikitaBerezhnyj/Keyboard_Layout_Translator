@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Keyboard Layout Translator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Keyboard Layout Translator extension for Firefox: easy translation of letters between English and Ukrainian layouts for easier typing. It helps those who write while looking at the keyboard.",
   "homepage_url": "https://github.com/NikitaBerezhnyj/Keyboard_Layout_Translator",
 

@@ -9,7 +9,7 @@ build: $(ZIP_FILE)
 
 $(ZIP_FILE): $(OUTPUT_DIR)
 	@echo "Creating archive $(ZIP_FILE)..."
-	@zip -r $(ZIP_FILE) $(SRC_DIR)
+	@cd $(SRC_DIR) && zip -r ../$(ZIP_FILE) .
 
 $(OUTPUT_DIR):
 	@echo "Creating directory $(OUTPUT_DIR)..."
