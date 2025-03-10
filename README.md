@@ -1,6 +1,6 @@
 # Keyboard Layout Translator
 
-Keyboard Layout Translator has [Ukrainian :ukraine:](#gthtrkflfx-ukraine) and [English :uk:](#gthtrkflfx-uk) localizations
+Keyboard Layout Translator has [Ukrainian :ukraine:](#keyboard-layout-translator-ukraine) and [English :uk:](#keyboard-layout-translator-uk) localizations
 
 ## Keyboard Layout Translator :ukraine:
 
