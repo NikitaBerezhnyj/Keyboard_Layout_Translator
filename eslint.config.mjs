@@ -1,5 +1,6 @@
 import globals from "globals";
-import pluginJs from "@eslint/js";
+import js from "@eslint/js";
+import prettierPlugin from "eslint-plugin-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -7,15 +8,18 @@ export default [
     languageOptions: {
       ecmaVersion: 2021,
       globals: {
-        ...globals.browser
+        ...globals.browser,
+        browser: "readonly",
+        tab: "readonly"
       }
     },
     plugins: {
-      prettier: pluginJs.configs.recommended.plugins.prettier
+      prettier: prettierPlugin
     },
     rules: {
-      ...pluginJs.configs.recommended.rules,
-      "prettier/prettier": "error"
+      ...js.configs.recommended.rules,
+      "prettier/prettier": "error",
+      "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }]
     }
   }
 ];
