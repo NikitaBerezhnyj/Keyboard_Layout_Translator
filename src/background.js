@@ -11,6 +11,5 @@ browser.menus.onClicked.addListener((info, tab) => {
   browser.storage.local.set({
     selectedText: selectedText
   });
-  // browser.browserAction.openPopup();
   browser.action.openPopup();
 });

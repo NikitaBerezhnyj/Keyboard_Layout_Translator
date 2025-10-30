@@ -6,46 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="./styles/reset.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="icon" href="./img/icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <title>Keyboard Layout Translator</title>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
     <div class="main-container">
         <h1>Keyboard Layout Translator</h1>
         <div class="translator">
-            <div class="translate-input">
-                <select class="select-lang" name="input-lang" id="input-lang">
-                    <option value="">Select a language</option>
-                    <option value="eng">English</option>
-                    <option value="ukr">Українська</option>
-                </select>
-                <input type="text" placeholder="Enter text" />
+            <div class="lang-row">
+                <div class="translate-input">
+                    <select class="select-lang" name="input-lang" id="input-lang">
+                        <option value="">Auto detect</option>
+                        <option value="eng">English</option>
+                        <option value="ukr">Українська</option>
+                    </select>
+                </div>
+                <div class="translate-output">
+                    <select class="select-lang" name="output-lang" id="output-lang">
+                        <option value="">Auto detect</option>
+                        <option value="eng">English</option>
+                        <option value="ukr">Українська</option>
+                    </select>
+                </div>
             </div>
-            <div class="translate-arrow">
-                <button id="lang-changer">
-                    <i id="lang-changer-img" class="fas fa-arrow-right"></i>
-                </button>
+            <div class="input-row">
+                <div class="translate-input">
+                    <input type="text" placeholder="Enter text..." />
+                </div>
+                <div class="translate-arrow">
+                    <button id="lang-changer">
+                        <i id="lang-changer-img" class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="translate-output">
+                    <input type="text" placeholder="Translation" />
+                </div>
             </div>
-            <div class="translate-output">
-                <select class="select-lang" name="output-lang" id="output-lang">
-                    <option value="">Select a language</option>
-                    <option value="eng">English</option>
-                    <option value="ukr">Українська</option>
-                </select>
-                <input type="text" placeholder="Translation" />
+
+            <div class="button-container">
+                <button class="btn" id="copyButton">Copy</button>
+                <button class="btn" id="clearButton">Clear</button>
             </div>
-        </div>
-        <div class="button-container">
-            <button class="btn" id="translateButton">Translate</button>
-            <span></span>
-            <button class="btn" id="clearButton">Clear</button>
         </div>
     </div>
     <script src="./popup.js"></script>

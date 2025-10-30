@@ -1,6 +1,6 @@
 let ukrainianLetters, englishLetters;
 
-import("./letters.js")
+const lettersReady = import("./letters.js")
   .then(module => {
     ukrainianLetters = module.ukrainianLetters;
     englishLetters = module.englishLetters;
@@ -9,9 +9,9 @@ import("./letters.js")
     console.error("Error loading letters module:", err);
   });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const clearButton = document.getElementById("clearButton");
-  const translateButton = document.getElementById("translateButton");
+  const copyButton = document.getElementById("copyButton");
   const inputTextField = document.querySelector(".translate-input input");
   const outputTextField = document.querySelector(".translate-output input");
   const inputLangSelect = document.getElementById("input-lang");
@@ -21,15 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   inputTextField.focus();
 
-  browser.storage.local.get("selectedText").then(result => {
-    const text = result.selectedText || "";
-    inputTextField.value = text;
-    browser.storage.local.set({
-      selectedText: ""
-    });
+  await lettersReady;
 
+  const result = await browser.storage.local.get("selectedText");
+  const text = result.selectedText || "";
+
+  if (text) {
+    inputTextField.value = text;
+    await browser.storage.local.set({ selectedText: "" });
     translateText();
-  });
+  }
 
   function getSavedSelectValues() {
     browser.storage.local
@@ -51,25 +52,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function translateText() {
     const text = inputTextField.value.trim();
-    const inputLangValue = inputLangSelect.value;
-    const outputLangValue = outputLangSelect.value;
+    let inputLangValue = inputLangSelect.value;
+    let outputLangValue = outputLangSelect.value;
 
-    if (text !== "") {
-      let translatedText;
-
-      const fromLayout = inputLangValue === "ukr" ? "ukr" : "eng";
-      const toLayout = outputLangValue === "ukr" ? "ukr" : "eng";
-
-      translatedText = translateTextByLayout(text, fromLayout, toLayout);
-
-      if (translatedText === "") {
-        outputTextField.value = "Invalid input language";
-      } else {
-        outputTextField.value = translatedText;
-      }
-    } else {
+    if (text === "") {
       outputTextField.value = "";
+      return;
     }
+
+    if (!inputLangValue) {
+      const detectedLang = detectLanguage(
+        text,
+        ukrainianLetters,
+        englishLetters
+      );
+      if (detectedLang) {
+        inputLangValue = detectedLang;
+        inputLangSelect.value = detectedLang;
+        outputLangValue = detectedLang === "ukr" ? "eng" : "ukr";
+        outputLangSelect.value = outputLangValue;
+        saveSelectValues();
+      }
+    }
+
+    if (!inputLangValue || !outputLangValue) {
+      outputTextField.value = "Select or type text to detect language";
+      return;
+    }
+
+    const translatedText = translateTextByLayout(
+      text,
+      inputLangValue,
+      outputLangValue
+    );
+    outputTextField.value = translatedText || "Invalid input language";
   }
 
   clearButton.addEventListener("click", function () {
@@ -77,14 +93,27 @@ document.addEventListener("DOMContentLoaded", function () {
     outputTextField.value = "";
   });
 
-  translateButton.addEventListener("click", translateText);
+  inputTextField.addEventListener("input", translateText);
 
-  inputLangSelect.addEventListener("change", function () {
+  copyButton.addEventListener("click", function () {
+    const textToCopy = outputTextField.value.trim();
+    if (!textToCopy) return;
+
+    navigator.clipboard
+      .writeText(textToCopy)
+      .then(() => {
+        copyButton.textContent = "✅ Copied!";
+        setTimeout(() => (copyButton.textContent = "Copy"), 1500);
+      })
+      .catch(err => console.error("Clipboard error:", err));
+  });
+
+  inputLangSelect.addEventListener("change", () => {
     saveSelectValues();
     translateText();
   });
 
-  outputLangSelect.addEventListener("change", function () {
+  outputLangSelect.addEventListener("change", () => {
     saveSelectValues();
     translateText();
   });
@@ -94,54 +123,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentOutputValue = outputLangSelect.value;
 
     langChangerImg.classList.add("change-animation");
-
     setTimeout(() => {
       inputLangSelect.value = currentOutputValue;
       outputLangSelect.value = currentInputValue;
       saveSelectValues();
       langChangerImg.classList.remove("change-animation");
+      translateText();
     }, 1000);
   });
 
   getSavedSelectValues();
 });
 
+function detectLanguage(text, ukrainianLetters, englishLetters) {
+  if (!text.trim()) return null;
+  const ukrCount = [...text].filter(ch => ukrainianLetters.includes(ch)).length;
+  const engCount = [...text].filter(ch => englishLetters.includes(ch)).length;
+  if (ukrCount === 0 && engCount === 0) return null;
+  return ukrCount > engCount ? "ukr" : "eng";
+}
+
 function translateTextByLayout(text, fromLayout, toLayout) {
   let fromLetters, toLetters;
 
-  switch (fromLayout) {
-    case "ukr":
-      fromLetters = ukrainianLetters;
-      break;
-    case "eng":
-      fromLetters = englishLetters;
-      break;
-    default:
-      return text;
-  }
+  if (fromLayout === "ukr") fromLetters = ukrainianLetters;
+  else if (fromLayout === "eng") fromLetters = englishLetters;
+  else return text;
 
-  switch (toLayout) {
-    case "ukr":
-      toLetters = ukrainianLetters;
-      break;
-    case "eng":
-      toLetters = englishLetters;
-      break;
-    default:
-      return text;
-  }
+  if (toLayout === "ukr") toLetters = ukrainianLetters;
+  else if (toLayout === "eng") toLetters = englishLetters;
+  else return text;
 
-  let translatedText = "";
-
-  for (let i = 0; i < text.length; i++) {
-    const char = text[i];
-    const index = fromLetters.indexOf(char);
-    if (index !== -1) {
-      translatedText += toLetters[index];
-    } else {
-      translatedText += char;
-    }
-  }
-
-  return translatedText;
+  return [...text]
+    .map(ch => {
+      const index = fromLetters.indexOf(ch);
+      return index !== -1 ? toLetters[index] : ch;
+    })
+    .join("");
 }
