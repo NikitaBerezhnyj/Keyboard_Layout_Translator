@@ -1,13 +1,11 @@
 {
-  "name": "keyboard_layout_translator",
-  "version": "1.0.0",
-  "description": "A Firefox extension for translating keyboard layouts",
+  "name": "keyboard-layout-translator",
+  "version": "1.1.0",
+  "description": "Keyboard Layout Translator extension for Firefox: easy translation of letters between English and Ukrainian layouts for easier typing. It helps those who write while looking at the keyboard.",
+  "homepage": "https://github.com/NikitaBerezhnyj/Keyboard_Layout_Translator",
   "main": "background.js",
-  "scripts": {
-    "format": "prettier --write .",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
-  },
+  "author": "NikitaBerezhnyj",
+  "license": "MIT",
   "keywords": [
     "firefox",
     "extension",
@@ -15,14 +13,22 @@
     "layout",
     "translator"
   ],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "build": "echo 'No build step defined' || exit 0",
+    "package": "web-ext build --source-dir src --artifacts-dir web-ext-artifacts",
+    "lint-web-ext": "web-ext lint --source-dir src",
+    "sign": "web-ext sign --source-dir src --artifacts-dir web-ext-artifacts --api-key $AMO_JWT_ISSUER --api-secret $AMO_JWT_SECRET"
+  },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "globals": "^15.12.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "web-ext": "^9.1.0"
   }
 }

@@ -1,0 +1,106 @@
+name: Build, Release & Publish Firefox Extension
+
+permissions:
+  contents: write
+  packages: write
+
+on:
+  push:
+    branches:
+      - prod
+  pull_request:
+    branches:
+      - prod
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Build extension (optional)
+        run: npm run build || echo "No build step defined"
+
+      - name: Lint with web-ext
+        run: npx web-ext lint --source-dir src
+
+      - name: Package extension
+        run: npx web-ext build --source-dir src --artifacts-dir web-ext-artifacts
+
+      - name: Get extension metadata
+        id: meta
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "NAME=$NAME" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: firefox-extension
+          path: web-ext-artifacts/*.zip
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build-and-package
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download extension artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: firefox-extension
+          path: ./artifacts
+
+      - name: Get extension metadata
+        id: meta
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "NAME=$NAME" >> $GITHUB_OUTPUT
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create tag if not exists
+        run: |
+          VERSION=${{ steps.meta.outputs.VERSION }}
+          if git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            echo "Tag v$VERSION already exists"
+          else
+            git config --global user.name "github-actions"
+            git config --global user.email "github-actions@github.com"
+            git tag -a "v$VERSION" -m "Release v$VERSION"
+            git push origin "v$VERSION"
+          fi
+
+      - name: Create GitHub Release and upload zip
+        run: |
+          VERSION=${{ steps.meta.outputs.VERSION }}
+          ZIP_FILE=$(ls ./artifacts/*.zip)
+          gh release create "v$VERSION" $ZIP_FILE \
+            --title "Keyboard Layout Translator v$VERSION" \
+            --notes "Automated Firefox extension release"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sign and upload to AMO
+        run: |
+          npx web-ext sign \
+            --source-dir . \
+            --artifacts-dir web-ext-artifacts \
+            --channel listed \
+            --api-key ${{ secrets.AMO_JWT_ISSUER }} \
+            --api-secret ${{ secrets.AMO_JWT_SECRET }}
